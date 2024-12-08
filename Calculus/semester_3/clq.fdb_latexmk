@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1733645963 "clq.tex" "clq.pdf" "clq" 1733645964 0
+["pdflatex"] 1733647200 "clq.tex" "clq.pdf" "clq" 1733647201 0
   "/Users/artemsvirin/Library/texlive/2023/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1708615612 3308 eee81981029f67083258db36df06e523 ""
   "/Users/artemsvirin/Library/texlive/2023/texmf-var/fonts/tfm/lh/lh-t2a/larm1200.tfm" 1708613842 3240 c2435f2b5cd66d4930bc29b8df87967e ""
   "/Users/artemsvirin/Library/texlive/2023/texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1708616686 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
@@ -120,8 +120,8 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708596570 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708596545 7883461 ebf022fb1b4deeb3edd82f88063e4798 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "clq.aux" 1733645964 206 39a55d41a3cd0a89846c812620f30871 "pdflatex"
-  "clq.tex" 1733645963 19847 bcb69b9766b9bb73badd4b42c6cfde3b ""
+  "clq.aux" 1733647201 206 39a55d41a3cd0a89846c812620f30871 "pdflatex"
+  "clq.tex" 1733647199 20559 4210cf6335b42bc13cb141a8782f4537 ""
   (generated)
   "clq.aux"
   "clq.log"
