@@ -1,0 +1,297 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+
+% programming language support
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+\graphicspath{ {figures/} }
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+\usepackage{mdframed}
+\usepackage{lipsum}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Очистить текущие настройки колонтитулов
+
+% Верхний колонтитул
+\fancyhead[L]{\today}
+\fancyhead[C]{\thepage}
+\fancyhead[R]{Artem Svirin}
+\renewcommand{\headrulewidth}{1pt} % Толщина линии
+
+% Нижний колонтитул
+\fancyfoot[L]{\today}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{Artem Svirin}
+\renewcommand{\footrulewidth}{1pt} % Толщина линии
+
+\newmdtheoremenv{theo}{Теорема}
+\newmdtheoremenv{proof_theo}{Доказательство теоремы} % Доказательство теоремы
+\newmdtheoremenv{cor}{Следствие}[theo] % Следствие
+\newmdtheoremenv{proof_cor}{Доказательство следствия}[theo] % Доказательство следствия
+\newmdtheoremenv{zm}{Замечание}
+\newmdtheoremenv{mdef}{Определение}
+\newmdtheoremenv{stm}{Утверждение}
+
+\title{Colloquium}
+\author{Artem Svirin}
+\date{\today}
+
+\begin{document}
+\begin{titlepage}
+	\maketitle
+	\thispagestyle{empty}
+\end{titlepage}
+\clearpage
+\begin{enumerate}
+	\item Определение числового ряда и его сходимости. Необходимое условие сходимости числового ряда. \\
+	      \begin{mdframed}
+		      \textbf{Определение числового ряда:} \\
+		      Пусть дана последовательность $a_k$. Символ \\
+		      \[
+			      \sum_{k=1}^{\infty} a_k = a_1 + a_2 + \ldots + a_k
+		      \]
+		      Называется числовым рядом с общим членом $a_k$. \\
+		      \textbf{Сходимость числового ряда:} \\
+		      Ряд с общим членом $a_k$ называется сходящимся, если $\exists \lim_{n \to \infty}S_n$ в $\mathbb{R}$ \\
+		      \textbf{Необходимое условие сходимости числового ряда:} \\
+		      Если ряд $\sum_{k=1}^{\infty} a_k$ сходится, то $\lim_{k \to \infty} a_k = 0$
+	      \end{mdframed}
+	\item Критерий Коши сходимости ряда. Определение абсолютной и условной сходимости. \\
+	      \begin{mdframed}
+		      \textbf{Критерий Коши сходимости ряда:} \\
+		      Ряд $\sum_{k=1}^{\infty} a_k$ сходится, тогда и только тогда, когда: \\
+		      \[
+			      \forall \varepsilon > 0 \ \exists n_0 = n_0(\varepsilon) \in \mathbb N: \ \forall n > n_0, \ \forall p \in \mathbb{N} \ \Rightarrow \ \left| \sum\limits_{k = n+1}^{n+p} a_k \right| < \varepsilon.
+		      \]
+		      \textbf{Определение абсолютной сходимости} \\
+		      Если ряд $\sum |a_k|$ - сходится, то говорят, что ряд $\sum a_k$ сходится абсолютно. \\
+		      \textbf{Определение условной сходимости} \\
+		      Если ряд $\sum a_k$ сходится, а ряд $\sum |a_k|$ расходится, то говорят, что ряд $\sum a_k$ сходится условно.
+	      \end{mdframed}
+	\item Интегральный признак Коши. \\
+	      \begin{mdframed}
+		      \textbf{Интегральный признак Коши:} \\
+		      Если $f(x) \ge 0$ невозрастающая функция на $[k; + \infty]$,  $k$ - натуральное, то  $\sum_{n=k}^{\infty} f(n)$ и $\int_{k}^{\infty}f(x)dx$ сходится или расходится одновременно. \\
+		      \textbf{Более простая формулировка:} \\
+		      Рассмотрим положительный числовой ряд $\sum_{n=1}^{\infty} a_n$. Если существует несобственный интеграл $\int_{1}^{\infty} a_n dx$, то ряд сходится или расходится вместе с этим интегралом.
+	      \end{mdframed}
+	\item Признаки сравнения в обычной и предельной форме. \\
+	      \begin{mdframed}
+		      \textbf{Признак сравнения в обычной форме:} \\
+		      Если $0 \le a_n \le b_n$ с некоторого номера $n > N$, то из сходимости $\sum b_n \implies$ сходимость $\sum a_n$. \\
+		      из расходимости $\sum a_n \implies$ расходимость $\sum b_n$. \\
+		      \textbf{Признак сравнения в предельной форме:} \\
+		      Пусть $a_n \ge 0, b_n \ge  0$, $\lim_{n \to \infty} \frac{a_n}{b_n} = k, k \neq 0, \infty$, тогда $\sum_{n=1}^{\infty} a_n$ и $\sum_{n=1}^{\infty} b_n$ сходятся или расходятся одновременно.
+	      \end{mdframed}
+	\item Признак Даламбера в обычной и предельной форме. \\
+	      \begin{mdframed}
+		      \textbf{Признак Даламбера в обычной форме:} \\
+		      Пусть с некоторого номера $n, a_n > 0$ и  $\frac{a_{n+1}}{a_n} < q, q < 1$, тогда ряд $\sum_{n=1}^{\infty} a_n$ сходится.
+		      Если $\frac{a_{n+1}}{a_n} \ge 1$, то $\sum_{n=1}^{\infty} a_n$ расходится. \\
+		      \textbf{Признак Даламбера в предельной форме:} \\
+		      Пусть с некоторого номера $n$,  $a_n > 0$ и существует \\  $\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = q$, тогда:
+		      \begin{itemize}
+			      \item Если $q < 1$, то ряд $\sum_{n=1}^{\infty} a_n$ сходится.
+			      \item Если $q > 1$, то ряд $\sum_{n=1}^{\infty} a_n$ расходится.
+			      \item Если $q = 1$, то признак не работает. (требуется другой признак)
+		      \end{itemize}
+	      \end{mdframed}
+	\item Радикальный признак Коши в обычной и предельной форме. \\
+	      \begin{mdframed}
+		      \textbf{Радикальный признак Коши в обычной форме:} \\
+		      Пусть с некоторого номера $n, a_n >  0$ и  $\sqrt[n]{a_n} < q, q < 1$, тогда ряд $\sum_{n=1}^{\infty} a_n$ сходится.
+		      Если $\sqrt[n]{a_n} \ge 1$, то $\sum_{n=1}^{\infty} a_n$ расходится. \\
+		      \textbf{Радикальный признак Коши в предельной форме:} \\
+		      Пусть с некоторого номера $n$,  $a_n > 0$ и существует \\  $\lim_{n \to \infty} \sqrt[n]{a_n} = q$, тогда:
+		      \begin{itemize}
+			      \item Если $q < 1$, то ряд $\sum_{n=1}^{\infty} a_n$ сходится.
+			      \item Если $q > 1$, то ряд $\sum_{n=1}^{\infty} a_n$ расходится.
+			      \item Если $q = 1$, то признак не работает. (требуется другой признак)
+		      \end{itemize}
+	      \end{mdframed}
+	\item Определение знакочередующегося ряда. Ряд Лейбница. Теорема Лейбница. \\
+	      \begin{mdframed}
+		      \textbf{Определение знакочередующегося ряда:} \\
+		      ряд $\sum_{n=1}^{\infty} (-1)^{n}b_n, b_n > 0$ или $\sum_{n=1}^{\infty} (-1)^{n+1}b_n, b_n > 0$ называется знакочередующимся. \\
+		      \textbf{Ряд Лейбница:} \\
+		      Ряд Лейбница - это знакочередующийся ряд, у которого\\ $\lim_{n \to \infty} b_n = 0$ и $b_{n+1} \le b_n$ \\
+		      \textbf{Теорема Лейбница:} \\
+		      Всякий ряд Лейбница сходится (вообще говоря, условно) и его остаток по модулю не превосходит модуля первого отброшенного члена.
+	      \end{mdframed}
+	\item Перестановка ряда. Теорема Римана. \\
+	      \begin{mdframed}
+		      \textbf{Перестановка ряда:} \\
+		      Перестановкой $n$ называется биекция $\sigma: \mathbb{N} \to \mathbb{N}$ \\
+		      Перестановкой ряда $\sum_{n=1}^{\infty} a_n$ называют ряд $\sum_{k=1}^{\infty} a_{\sigma(k)}$ \\
+		      \textbf{Теорема Римана:} \\
+		      Если ряд $\sum_{n=1}^{\infty} a_n$ сходится условно, то существует перестановка ряда, сход. к любому выбранному числу,  к $\pm \infty$.
+	      \end{mdframed}
+	\item Перестановка абсолютно сходящегося ряда. \\
+	      \begin{mdframed}
+		      \textbf{Перестановка абсолютно сходящегося ряда:} \\
+		      Если ряд $\sum_{n=1}^{\infty} a_n$ сходится абсолютно, то любая его перестановка сходится к тому же числу.
+	      \end{mdframed}
+	\item Произведение рядов. \\
+	      \begin{mdframed}
+		      \textbf{Произведение рядов:} \\
+		      Пусть даны два ряда $\sum_{n=1}^{\infty} a_n$ и $\sum_{n=1}^{\infty} b_n$.  $\sum_{k=1}^{\infty} a_{m(k)}b_{n(k)}$ \\
+		      пара $(m(k), n(k))$ - счетное множество, существует \\ биекция $k \in \mathbb{N} \to (m(k), n(k))$  \\
+
+	      \end{mdframed}
+	\item Признак Дирихле и Абеля: \\
+	      \begin{mdframed}
+		      \textbf{Признак Дирихле:} \\
+		      ряд $\sum_{k=1}^{\infty} a_k b_k$ сходится, если:
+		      \begin{itemize}
+			      \item Последовательность частичных сумм $A_k = \sum_{l=1}^{k} a_l$ ограничена. (т.е $\exists M: \forall k \ \Rightarrow \ |A_k| \le M$)
+			      \item Последовательность $\{b_k\}^{\infty}_{k=1}$ монотонна и стремится к 0.
+		      \end{itemize}
+		      \textbf{Признак Абеля:} \\
+		      ряд $\sum_{k=1}^{\infty} a_k b_k$ сходится, если:
+		      \begin{itemize}
+			      \item последовательность $\{b_k\}^{\infty}_{k=1}$ монотонна и ограничена.
+			      \item $\sum_{k=1}^{\infty} a_k$ - сходится.
+		      \end{itemize}
+	      \end{mdframed}
+	\item Признаки Раабе и Гаусса. \\
+	      \begin{mdframed}
+		      \textbf{Признак Раабе:} \\
+		      $\sum p_n$ сходится, если  $\forall n>n_0$ \\
+		      $\frac{p_n}{p_{n+1}} \le  1- \frac{\alpha}{n}$, где $\alpha > 1$ и \\
+		      $\sum p_n$ расходится, если с некоторого номера $\frac{p_{n+1}}{p_n} \ge 1-\frac{1}{n}$ \\
+		      \textbf{Признак Раабе в предельной форме:} \\
+		      Если $p_n > 0$, и существует $\lim_{n \to \infty} n \left( \frac{p_n}{p_{n+1}} - 1 \right) = l$, тогда:
+		      \begin{itemize}
+			      \item Если $l > 1$, то ряд $\sum_{n=1}^{\infty} p_n$ сходится.
+			      \item Если $l < 1$, то ряд $\sum_{n=1}^{\infty} p_n$ расходится.
+			      \item Если $l = 1$, то признак не работает. (требуется другой признак)
+		      \end{itemize}
+		      \textbf{Признак Гаусса:} \\
+		      $a_n > 0, \varepsilon > 0$ и $\frac{a_n}{a_{n+1}} = \lambda + \frac{M}{n}+O \left( \frac{1}{n} + \varepsilon \right)$
+		      \begin{itemize}
+			      \item Если $\lambda > 1$, то ряд $\sum_{n=1}^{\infty} a_n$ сходится.
+			      \item Если $\lambda < 1$, то ряд $\sum_{n=1}^{\infty} a_n$ расходится.
+			      \item Если $\lambda = 1$, то:
+			            \begin{itemize}
+				            \item Если $M > 1$, то ряд $\sum_{n=1}^{\infty} a_n$ сходится.
+				            \item Если $M \le  1$, то ряд $\sum_{n=1}^{\infty} a_n$ расходится.
+			            \end{itemize}
+		      \end{itemize}
+	      \end{mdframed}
+	\item Методы суммирования рядов. Формула суммирования Эйлера и Абеля. \\
+	\item Гипергеометрическое дифференциальное уравнение. Гипергеометрическая функция Гаусса. Формула суммирования в единице. \\
+	\item Определение функционального ряда и его сходимости, а также области сходимости. \\
+	      \begin{mdframed}
+		      \textbf{Определение функционального ряда:} \\
+		      Пусть дана последовательность функций $f_k(x)$. \\
+		      \[
+			      \sum_{k=1}^{\infty} f_k(x) = f_1(x) + f_2(x) + \ldots + f_k(x)
+		      \]
+		      Называется функциональным рядом с общим членом $f_k(x)$. \\
+		      \textbf{Сходимость функционального ряда в точке $x_0$:} \\
+		      $\lim_{n \to \infty} S_n(x_0) = S(x_0)$, \\
+		      $\forall \varepsilon > 0 \exists N = N(\varepsilon): \forall n > N(\varepsilon) \Rightarrow |S_n(x_0) - S(x_0)| < \varepsilon$ \\
+		      \textbf{Область сходимости функционального ряда:} \\
+		      Областью сходимости функционального ряда называется множество точек $x$, в которых ряд сходится.
+	      \end{mdframed}
+	\item Определение равномерной сходимости функционального ряда. Критерий Коши и теоерема Вейерштрасса. \\
+	      \begin{mdframed}
+		      \textbf{Определение равномерной сходимости функционального ряда:} \\
+		      Функциональный ряд $\sum_{k=1}^{\infty} f_k(x)$ сходится равномерно на множестве $E$, если: \\
+		      $\forall \varepsilon > 0 \ \exists N = N(\varepsilon): \forall n > N, \forall x \in E \Rightarrow |S_n(x) - S(x)| < \varepsilon$ \\
+		      \textbf{Критерий Коши равномерной сходимости функционального ряда:} \\
+		      Функциональный ряд $\sum_{k=1}^{\infty} f_k(x)$ сходится равномерно на множестве $E$, если: \\
+		      $\forall \varepsilon > 0 \ \exists N = N(\varepsilon): \forall n > N, \forall p \in \mathbb{N}, \forall x \in E \Rightarrow |S_{n+p}(x) - S_n(x)| < \varepsilon$ \\
+		      \textbf{Теорема Вейерштрасса:} \\
+		      Если $|f_k(x)| \le a_k, \forall x \in E, \forall k \in \mathbb{N}$ и $\sum_{k=1}^{\infty} a_k$ сходится, то ряд $\sum_{k=1}^{\infty} f_k(x)$ сходится равномерно на $E$.
+	      \end{mdframed}
+	\item Свойство почленного интегрирования функционального ряда. \\
+	      \begin{mdframed}
+		      \textbf{Свойство почленного интегрирования функционального ряда:} \\
+		      $\sum_{n=1}^{\infty} u_n(x) \underset{[a,b]}\rightrightarrows u_n(x), u_n(x) \in R[a,b] \implies$ \\
+		      $\implies \int_{{a}}^{{b}} {\sum_{n=1}^{\infty} u_n(x)} \: d{x} {} = \sum_{n=1}^{\infty} \int_{{a}}^{{b}} {u_n(x)} \: d{x}$
+	      \end{mdframed}
+	\item Свойство почленного дифференцирования функционального ряда. \\
+	      \begin{mdframed}
+		      \textbf{Свойство почленного дифференцирования функционального ряда:} \\
+		      $\sum_{n=1}^{\infty} u_n(x)$ можно почленно дифференцировать, если $u'_n(x) \in C^{1}([a;b])$, \\
+		      $\sum_{n=1}^{\infty} u_n(x_0)$ существует ряд сходящийся в нашей точке $x_0$ и $\sum_{n=1}^{\infty} u'_n(x) \underset{[a;b]}\rightrightarrows$. \\
+		      Тогда $\left( \sum_{n=1}^{\infty} u_n(x) \right)' = \sum_{n=1}^{\infty} u'_n(x)$
+	      \end{mdframed}
+	\item Определение степенного ряда. Теорема Абеля.
+	      \begin{mdframed}
+		      \textbf{Определение степенного ряда:} \\
+		      Степенным рядом называется ряд вида: \\
+		      \[
+			      \sum_{n=0}^{\infty} c_nx^n = c_0 + c_1x + c_2x^2 + \ldots + c_nx^n + \ldots
+		      \]
+		      \[
+			      \sum_{n=0}^{\infty} c_n(x-a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + \ldots + c_n(x-a)^n + \ldots
+		      \]
+		      $a = const$ \\
+		      \textbf{Теорема Абеля:} \\
+		      Если степенной ряд $\sum_{n=0}^{\infty} a_nx^n$ сходится в некоторой точке $c>0$, то он сходится на $[0;c]$ \\
+		      Если есть сходимость в точке  $c, (c>0)$, то ряд сходится на  $[-c;0]$ и  $S(x)$ непрерывно на  $[-c;0]$ \\
+	      \end{mdframed}
+	\item Теорема о существовании радиуса сходимости. Определение радиуса сходимости и формулы его нахождения. \\
+	      \begin{mdframed}
+		      \textbf{Теорема о существовании радиуса сходимости:} \\
+		      $ \sum_{n=0}^{\infty} c_n z^n (2)$ \\
+		      Для всякого степенного ряда $(2)$ существует  $R (R\ge 0$ - число или $+\infty)$, такое что: \\
+		      \begin{itemize}
+			      \item Если $R \neq 0$ и $R \neq +\infty$, то ряд абсолютно сходится в круге $K = \{z: |z|< R\}$ и расходится вне круга $K$. Этот круг называют кругом сходимости, а $R$ - радиусом сходимости. \\
+			      \item Если $R = 0$, то ряд сходится только в точке $z = 0$. \\
+			      \item Если $R = +\infty$, то ряд сходится во всей комплексной плоскости. \\
+		      \end{itemize}
+		      \textbf{Формулы нахождения радиуса сходимости:}
+		      \begin{itemize}
+			      \item $R = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$
+			      \item $R = \lim_{n \to \infty} \frac{1}{\sqrt[n]{|a_n|}}$
+		      \end{itemize}
+	      \end{mdframed}
+\end{enumerate}
+
+
+\end{document}
